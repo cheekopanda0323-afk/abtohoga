@@ -1,0 +1,249 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette to premium orange */
+  --background: #0a0a0a;
+  --foreground: #f0f0f0;
+  --card: #121212;
+  --card-foreground: #f0f0f0;
+  --popover: #1a1a1a;
+  --popover-foreground: #f0f0f0;
+  --primary: #ff8c00;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e2e;
+  --secondary-foreground: #f0f0f0;
+  --muted: #404050;
+  --muted-foreground: #b0b0c0;
+  --accent: #ffa500;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a3a;
+  --input: #151520;
+  --ring: #ff8c00;
+  --chart-1: #ff8c00;
+  --chart-2: #ffa500;
+  --chart-3: #7c3aed;
+  --chart-4: #ec4899;
+  --chart-5: #f59e0b;
+  --radius: 0.5rem;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f0f0f0;
+  --sidebar-primary: #ff8c00;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e1e2e;
+  --sidebar-accent-foreground: #f0f0f0;
+  --sidebar-border: #2a2a3a;
+  --sidebar-ring: #ff8c00;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f0f0f0;
+  --card: #121212;
+  --card-foreground: #f0f0f0;
+  --popover: #1a1a1a;
+  --popover-foreground: #f0f0f0;
+  --primary: #ff8c00;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e2e;
+  --secondary-foreground: #f0f0f0;
+  --muted: #404050;
+  --muted-foreground: #b0b0c0;
+  --accent: #ffa500;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #fecaca;
+  --border: #2a2a3a;
+  --input: #151520;
+  --ring: #ff8c00;
+  --chart-1: #ff8c00;
+  --chart-2: #ffa500;
+  --chart-3: #7c3aed;
+  --chart-4: #ec4899;
+  --chart-5: #f59e0b;
+  --sidebar: #0a0a0a;
+  --sidebar-foreground: #f0f0f0;
+  --sidebar-primary: #ff8c00;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e1e2e;
+  --sidebar-accent-foreground: #f0f0f0;
+  --sidebar-border: #2a2a3a;
+  --sidebar-ring: #ff8c00;
+}
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback";
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Removed shine effects from general use, kept only for top players */
+.glow-orange {
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.6), 0 0 40px rgba(255, 140, 0, 0.3), inset 0 0 20px rgba(255, 165, 0, 0.1);
+}
+
+.glow-orange-hover:hover {
+  box-shadow: 0 0 30px rgba(255, 140, 0, 0.8), 0 0 60px rgba(255, 140, 0, 0.5), inset 0 0 30px rgba(255, 165, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.text-glow-orange {
+  text-shadow: 0 0 10px rgba(255, 140, 0, 0.6), 0 0 20px rgba(255, 165, 0, 0.4);
+}
+
+/* Shine effect only for top players cards */
+.shine-effect-players {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  position: relative;
+}
+
+.shine-effect-players::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.6), 0 0 40px rgba(255, 140, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.8), 0 0 60px rgba(255, 140, 0, 0.5);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes border-glow {
+  0%,
+  100% {
+    border-color: rgba(255, 140, 0, 0.5);
+    box-shadow: inset 0 0 10px rgba(255, 140, 0, 0.2);
+  }
+  50% {
+    border-color: rgba(255, 140, 0, 0.8);
+    box-shadow: inset 0 0 20px rgba(255, 140, 0, 0.4), 0 0 20px rgba(255, 140, 0, 0.6);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+.animate-float-up {
+  animation: float-up 0.8s ease-out;
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
